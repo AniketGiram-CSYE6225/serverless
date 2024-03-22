@@ -1,8 +1,8 @@
-import { cloudEvent as _cloudEvent } from '@google-cloud/functions-framework';
-import dotenv from 'dotenv'
+const cloudEvent = require('@google-cloud/functions-framework');
+const dotenv = require('dotenv')
 dotenv.config()
 
-_cloudEvent('verifyUser', cloudEvent => {
+cloudEvent('verifyUser', cloudEvent => {
     const base64name = cloudEvent.data.message.data;
 
     var mg = new Mailgun(process.env.MAILGUN_API_KEY);
