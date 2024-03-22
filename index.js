@@ -1,8 +1,8 @@
-const cloudEvent = require('@google-cloud/functions-framework');
+const functions = require('@google-cloud/functions-framework');
 const dotenv = require('dotenv')
 dotenv.config()
 
-cloudEvent('verifyUser', cloudEvent => {
+functions.cloudEvent('verifyUser', cloudEvent => {
     const base64name = cloudEvent.data.message.data;
 
     var mg = new Mailgun(process.env.MAILGUN_API_KEY);
@@ -18,5 +18,5 @@ cloudEvent('verifyUser', cloudEvent => {
         'Verify USer Email Address',
         function (err) { err && console.log(err) });
 
-    console.log(`Hello, ${name}!`);
+    console.log(`Hello, ${data}!`);
 });
