@@ -11,6 +11,6 @@
   "dependencies": {
     "@google-cloud/functions-framework": "^3.3.0",
     "dotenv": "^16.4.5",
-    "mailgun": "^0.5.0"
+    "mailgun.js": "^10.2.1"
   }
 }
