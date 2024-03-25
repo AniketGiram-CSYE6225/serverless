@@ -1,7 +1,7 @@
 const functions = require('@google-cloud/functions-framework');
 const dotenv = require('dotenv')
-const formData = require('form-data');
-const Mailgun = require('mailgun.js');
+// const formData = require('form-data');
+// const Mailgun = require('mailgun.js');
 // const mailgun = new Mailgun(formData);
 
 dotenv.config()
