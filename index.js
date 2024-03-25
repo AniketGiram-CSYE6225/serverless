@@ -6,7 +6,7 @@ const Mailgun = require('mailgun.js');
 
 dotenv.config()
 
-functions.cloudEvent('verifyUser', cloudEvent => {
+functions.cloudEvent('verifyUser', async cloudEvent => {
     const base64name = cloudEvent.data.message.data;
 
     // const mg = mailgun.client({ username: 'key', key: `key-${process.env.MAILGUN_API_KEY}` });
@@ -29,7 +29,7 @@ functions.cloudEvent('verifyUser', cloudEvent => {
         html: 'Hello, This is not a plain-text email, I wanted to test some spicy Mailgun sauce in NodeJS! <a href="http://0.0.0.0:3030/validate?">Click here to add your email address to a mailing list</a>'
     };
 
-    mailgun.messages().send(mail_data, function (err, body) {
+    await mailgun.messages.send(mail_data, function (err, body) {
         // If there is an error, render the error page
         if (err) {
             console.log("Got an error:", err);
