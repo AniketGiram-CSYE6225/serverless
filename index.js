@@ -12,12 +12,12 @@ functions.cloudEvent('verifyUser', cloudEvent => {
         ? Buffer.from(base64name, 'base64').toString()
         : 'World';
 
-    // const decodedData = JSON.parse(dataBuffer.toString('utf8'));
-
-    sendText('sender@aniketgiram.me',
-        [data['username']],
-        'Verify USer Email Address',
-        function (err) { err && console.log(err) });
+    const decodedData = JSON.parse(data);
+    console.log(`decoded_data`, decodedData, typeof decodedData)
+    // sendText('sender@aniketgiram.me',
+    //     [data['username']],
+    //     'Verify USer Email Address',
+    //     function (err) { err && console.log(err) });
 
     console.log(`Hello, ${data}!`);
 });
