@@ -20,7 +20,7 @@ functions.cloudEvent('verifyUser', cloudEvent => {
     console.log(`Hello, ${data}!`);
 
     var mail_data = {
-        from: "aniket-giram email.aniketgiram.me",
+        from: "Aniket Giram <email@aniketgiram.me>",
         to: "aniketgiram1@gmail.com",
         subject: 'Hello from Mailgun',
         Text: "this is a text message",
