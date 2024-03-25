@@ -25,7 +25,7 @@ functions.cloudEvent('verifyUser', cloudEvent => {
         from: "aniketgiram.me",
         to: "aniketgiram1@gmail.com",
         subject: 'Hello from Mailgun',
-        message: "this is message",
+        Text: "this is a text message",
         html: 'Hello, This is not a plain-text email, I wanted to test some spicy Mailgun sauce in NodeJS! <a href="http://0.0.0.0:3030/validate?">Click here to add your email address to a mailing list</a>'
     };
 
