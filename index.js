@@ -1,5 +1,6 @@
 const functions = require('@google-cloud/functions-framework');
 const dotenv = require('dotenv')
+const Mailgun = require('mailgun').Mailgun;
 dotenv.config()
 
 functions.cloudEvent('verifyUser', cloudEvent => {
