@@ -1,5 +1,7 @@
-import { DataTypes, Model, Sequelize } from 'sequelize'
-import sequelize from '../database/index.js'
+const Sequelize = require('sequelize');
+const DataTypes = Sequelize.DataTypes;
+const Model = Sequelize.Model;
+const _sequelize = require('../database/index.js');
 
 class User extends Model { }
 
@@ -40,7 +42,7 @@ const user = {
 }
 
 User.init(user, {
-    sequelize,
+    _sequelize,
     timestamps: true,
     createdAt: 'account_created',
     updatedAt: 'account_updated',

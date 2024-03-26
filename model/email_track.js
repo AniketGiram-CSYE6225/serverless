@@ -1,6 +1,8 @@
-import { DataTypes, Model, Sequelize } from 'sequelize'
-import sequelize from '../database/index.js'
-import User from './user.js';
+const Sequelize = require('sequelize');
+const DataTypes = Sequelize.DataTypes;
+const Model = Sequelize.Model;
+const _sequelize = require('../database/index.js');
+const User = require('./user.js');
 
 class EmailTrack extends Model { }
 
@@ -33,7 +35,7 @@ const emailTrackAttributes = {
 }
 
 EmailTrack.init(emailTrackAttributes, {
-    sequelize,
+    _sequelize,
     timestamps: true,
     createdAt: 'emailSentTime',
     updatedAt: 'emailReSentTimeUpdate',
