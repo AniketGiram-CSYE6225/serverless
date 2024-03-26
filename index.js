@@ -15,9 +15,11 @@ functions.cloudEvent('verifyUser', async cloudEvent => {
 
         const mg = mailgun.client({ username: 'api', key: process.env.MAILGUN_API_KEY });
 
-        const data = base64name
-            ? Buffer.from(base64name, 'base64').toString()
-            : 'World';
+        const data = base64name ? Buffer.from(base64name, 'base64').toString() : null;
+
+        if (!data) {
+            throw new Error("Invalid Payload");
+        }
 
         const decodedData = JSON.parse(data);
         console.log(`decoded_data`, decodedData, typeof decodedData)
