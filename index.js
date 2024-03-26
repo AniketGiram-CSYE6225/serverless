@@ -10,7 +10,7 @@ dotenv.config()
 
 functions.cloudEvent('verifyUser', async cloudEvent => {
     try {
-        await db_conn.authenticate()
+        await db_conn.sync()
         const base64name = cloudEvent.data.message.data;
 
         const mg = mailgun.client({ username: 'api', key: process.env.MAILGUN_API_KEY });
