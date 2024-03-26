@@ -35,7 +35,7 @@ functions.cloudEvent('verifyUser', async cloudEvent => {
             html: ```Hello ${decodedData['firstName']},
              <h4>Below is the link to verify your account.</h4><br/> 
              <a href="
-             http://aniketgiram.me:8080/v1/userVerification?username=${decodedData['username']}&userId=${decodedData['userId']}&firstName=${decodedData['firstname']}"
+             http://aniketgiram.me/v1/userVerification?username=${decodedData['username']}&userId=${decodedData['userId']}&firstName=${decodedData['firstname']}"
              >Click here to add your email address to a mailing list</a>```
         };
 
