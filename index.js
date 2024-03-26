@@ -4,7 +4,7 @@ const formData = require('form-data');
 const Mailgun = require('mailgun.js');
 const mailgun = new Mailgun(formData);
 const db_conn = require('./database/index.js');
-const { User, EmailTrack } = require('./model/index.js')
+// const { User, EmailTrack } = require('./model/index.js')
 
 dotenv.config()
 
@@ -35,7 +35,7 @@ functions.cloudEvent('verifyUser', async cloudEvent => {
             html: ```Hello ${decodedData['firstName']},
              <h4>Below is the link to verify your account.</h4><br/> 
              <a href="
-             http://aniketgiram.me/v1/userVerification?username=${decodedData['username']}&userId=${decodedData['userId']}&firstName=${decodedData['firstname']}"
+             http://aniketgiram.me:8080/v1/userVerification?username=${decodedData['username']}&userId=${decodedData['userId']}&firstName=${decodedData['firstname']}"
              >Click here to add your email address to a mailing list</a>```
         };
 
