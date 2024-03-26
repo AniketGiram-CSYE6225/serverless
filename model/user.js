@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const DataTypes = Sequelize.DataTypes;
 const Model = Sequelize.Model;
-const _sequelize = require('../database/index.js');
+const sequelize = require('../database/index.js');
 
 class User extends Model { }
 
@@ -42,7 +42,7 @@ const user = {
 }
 
 User.init(user, {
-    _sequelize,
+    sequelize,
     timestamps: true,
     createdAt: 'account_created',
     updatedAt: 'account_updated',
