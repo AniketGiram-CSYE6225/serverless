@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const DataTypes = Sequelize.DataTypes;
 const Model = Sequelize.Model;
-const _sequelize = require('../database/index.js');
+const sequelize = require('../database/index.js');
 const User = require('./user.js');
 
 class EmailTrack extends Model { }
@@ -35,7 +35,7 @@ const emailTrackAttributes = {
 }
 
 EmailTrack.init(emailTrackAttributes, {
-    _sequelize,
+    sequelize,
     timestamps: true,
     createdAt: 'emailSentTime',
     updatedAt: 'emailReSentTimeUpdate',
