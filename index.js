@@ -29,15 +29,19 @@ functions.cloudEvent('verifyUser', async cloudEvent => {
             return;
         }
         console.log("User", user);
-        var mail_data = {
+        console.log("creating html data");
+
+        // const html_data = `Hello ${decodedData['firstName']}, <h4>Below is the link to verify your account.</h4><br/><a href="http://aniketgiram.me:8080/v1/userVerification?username=${decodedData['username']}&userId=${decodedData['userId']}&firstName=${decodedData['firstName']}">Click here to verify your Account</a>`;
+        const html_data = `Hello ${decodedData['firstName']}, <h4>Below is the link to verify your account.</h4><br/><a href="http://aniketgiram.me:8080/v1/userVerification?username=${encodeURIComponent(decodedData['username'])}&userId=${encodeURIComponent(decodedData['userId'])}&firstName=${encodeURIComponent(decodedData['firstName'])}">Click here to verify your Account</a>`;
+
+
+        console.log("html data", html_data);
+
+        const mail_data = {
             from: "Aniket Giram <email@aniketgiram.me>",
             to: "aniketgiram1@gmail.com",
-            subject: 'Hello from Mailgun',
-            html: ```Hello ${decodedData['firstName']},
-             <h4>Below is the link to verify your account.</h4><br/> 
-             <a href="
-             http://aniketgiram.me:8080/v1/userVerification?username=${decodedData['username']}&userId=${decodedData['userId']}&firstName=${decodedData['firstName']}"
-             >Click here to add your email address to a mailing list</a>```
+            subject: 'Hello from Aniket Giram',
+            html: html_data
         };
         console.log("preparing mail data", mail_data);
         mg.messages.create('aniketgiram.me', mail_data)
