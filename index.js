@@ -46,11 +46,11 @@ functions.cloudEvent('verifyUser', async cloudEvent => {
         await mg.messages.create('aniketgiram.me', mail_data);
         console.log("Mail Sent");
 
-        const durationInMinutes = 2;
-        const currentTime = new Date();
-        const emailExpiryTime = new Date(currentTime.getTime() + (durationInMinutes * 60 * 1000));
-        await EmailTrack.create({ userId: decodedData['userId'], emailStatus: "EMAIL_SENT", email_expiry_time: emailExpiryTime})
-        console.log("Email Sent to User");
+        // const durationInMinutes = 2;
+        // const currentTime = new Date();
+        // const emailExpiryTime = new Date(currentTime.getTime() + (durationInMinutes * 60 * 1000));
+        // await EmailTrack.create({ userId: decodedData['userId'], emailStatus: "EMAIL_SENT", email_expiry_time: emailExpiryTime})
+        // console.log("Email Sent to User");
     } catch (error) {
         console.log("error in function", error)
     }
