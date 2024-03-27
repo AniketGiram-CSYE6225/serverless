@@ -32,7 +32,7 @@ functions.cloudEvent('verifyUser', async cloudEvent => {
 
         // const html_data = `Hello ${decodedData['firstName']}, <h4>Below is the link to verify your account.</h4><br/><a href="http://aniketgiram.me:8080/v1/userVerification?username=${encodeURIComponent(decodedData['username'])}&userId=${encodeURIComponent(decodedData['userId'])}&firstName=${encodeURIComponent(decodedData['firstName'])}">Click here to verify your Account</a>`;
         // const html_data = `<h1>Hello from Aniket</h1> <a href="http://aniketgiram.me:8080/v1/userVerification?userId=${encodeURIComponent(decodedData['userId'])}&firstName=${encodeURIComponent(decodedData['firstName'])}">Click here to verify your Account</a>`;
-        const html_data = "<h1>Hello from Aniket</h1> This is a verification link";
+        const html_data = "<h1>Hello from Aniket again</h1>";
 
         console.log("html data", html_data);
 
