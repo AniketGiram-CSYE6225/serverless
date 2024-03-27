@@ -17,7 +17,7 @@ functions.cloudEvent('verifyUser', async cloudEvent => {
         var transporter = nodemailer.createTransport({
             service: "Mailgun",
             auth: {
-                user: "postmaster@aniketgiram.me",
+                user: "email@aniketgiram.me",
                 pass: process.env.MAILGUN_API_KEY,
             },
         });
