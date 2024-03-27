@@ -32,7 +32,7 @@ functions.cloudEvent('verifyUser', async cloudEvent => {
 
         // const html_data = `Hello ${decodedData['firstName']}, <h4>Below is the link to verify your account.</h4><br/><a href="http://aniketgiram.me:8080/v1/userVerification?username=${encodeURIComponent(decodedData['username'])}&userId=${encodeURIComponent(decodedData['userId'])}&firstName=${encodeURIComponent(decodedData['firstName'])}">Click here to verify your Account</a>`;
         // const html_data = `<h1>Hello from Aniket</h1> <a href="http://aniketgiram.me:8080/v1/userVerification?userId=${encodeURIComponent(decodedData['userId'])}&firstName=${encodeURIComponent(decodedData['firstName'])}">Click here to verify your Account</a>`;
-        const html_data = `<h1>Hello from Aniket</h1>`;
+        const html_data = "<h1>Hello from Aniket</h1> This is a verification link";
 
         console.log("html data", html_data);
 
@@ -45,7 +45,7 @@ functions.cloudEvent('verifyUser', async cloudEvent => {
         console.log("preparing mail data", mail_data);
         await mg.messages.create('aniketgiram.me', mail_data);
         console.log("Mail Sent");
-        
+
         const durationInMinutes = 2;
         const currentTime = new Date();
         const emailExpiryTime = new Date(currentTime.getTime() + (durationInMinutes * 60 * 1000));
