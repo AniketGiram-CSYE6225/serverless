@@ -3,7 +3,7 @@ const dotenv = require('dotenv')
 // const formData = require('form-data');
 // const Mailgun = require('mailgun.js');
 // const mailgun = new Mailgun(formData);
-// const { EmailTrack } = require('./model/index.js')
+const { User, EmailTrack } = require('./model/index.js')
 var nodemailer = require("nodemailer");
 
 dotenv.config()
@@ -31,12 +31,12 @@ functions.cloudEvent('verifyUser', async cloudEvent => {
         const decodedData = JSON.parse(data);
         console.log(`decoded_data => `, decodedData)
 
-        // const user = await User.findOne({ where: { id: decodedData['userId'] } });
-        // if (user == null) {
-        //     console.log("User Not found");
-        //     return;
-        // }
-        // console.log("User", user);
+        const user = await User.findOne({ where: { id: decodedData['userId'] } });
+        if (user == null) {
+            console.log("User Not found");
+            return;
+        }
+        console.log("User", user);
         // console.log("creating html data");
 
         // const html_data = `Hello ${decodedData['firstName']}, <h4>Below is the link to verify your account.</h4><br/><a href="http://aniketgiram.me:8080/v1/userVerification?username=${encodeURIComponent(decodedData['username'])}&userId=${encodeURIComponent(decodedData['userId'])}&firstName=${encodeURIComponent(decodedData['firstName'])}">Click here to verify your Account</a>`;
