@@ -23,17 +23,16 @@ functions.cloudEvent('verifyUser', async cloudEvent => {
         const decodedData = JSON.parse(data);
         console.log(`decoded_data`, decodedData)
 
-        const user = await User.findOne({ where: { id: decodedData['userId'] } });
-        if (user == null) {
-            console.log("User Not found");
-            return;
-        }
-        console.log("User", user);
-        console.log("creating html data");
+        // const user = await User.findOne({ where: { id: decodedData['userId'] } });
+        // if (user == null) {
+        //     console.log("User Not found");
+        //     return;
+        // }
+        // console.log("User", user);
+        // console.log("creating html data");
 
-        // const html_data = `Hello ${decodedData['firstName']}, <h4>Below is the link to verify your account.</h4><br/><a href="http://aniketgiram.me:8080/v1/userVerification?username=${decodedData['username']}&userId=${decodedData['userId']}&firstName=${decodedData['firstName']}">Click here to verify your Account</a>`;
-        const html_data = `Hello ${decodedData['firstName']}, <h4>Below is the link to verify your account.</h4><br/><a href="http://aniketgiram.me:8080/v1/userVerification?username=${encodeURIComponent(decodedData['username'])}&userId=${encodeURIComponent(decodedData['userId'])}&firstName=${encodeURIComponent(decodedData['firstName'])}">Click here to verify your Account</a>`;
-
+        // const html_data = `Hello ${decodedData['firstName']}, <h4>Below is the link to verify your account.</h4><br/><a href="http://aniketgiram.me:8080/v1/userVerification?username=${encodeURIComponent(decodedData['username'])}&userId=${encodeURIComponent(decodedData['userId'])}&firstName=${encodeURIComponent(decodedData['firstName'])}">Click here to verify your Account</a>`;
+        const html_data = "<h1>Hello from Aniket</h1>"
 
         console.log("html data", html_data);
 
@@ -44,14 +43,13 @@ functions.cloudEvent('verifyUser', async cloudEvent => {
             html: html_data
         };
         console.log("preparing mail data", mail_data);
-        mg.messages.create('aniketgiram.me', mail_data)
-            .then(msg => console.log(msg))
-            .catch(err => console.error(err));
-        const durationInMinutes = 2;
-        const currentTime = new Date();
-        const emailExpiryTime = new Date(currentTime.getTime() + (durationInMinutes * 60 * 1000));
-        await EmailTrack.create({ userId: user.id, emailStatus: "EMAIL_SENT", email_expiry_time: emailExpiryTime})
-        console.log("Email Sent to User");
+        await mg.messages.create('aniketgiram.me', mail_data);
+        console.log("Mail Sent");
+        // const durationInMinutes = 2;
+        // const currentTime = new Date();
+        // const emailExpiryTime = new Date(currentTime.getTime() + (durationInMinutes * 60 * 1000));
+        // await EmailTrack.create({ userId: user.id, emailStatus: "EMAIL_SENT", email_expiry_time: emailExpiryTime})
+        // console.log("Email Sent to User");
     } catch (error) {
         console.log("error in function", error)
     }
