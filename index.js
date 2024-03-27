@@ -10,7 +10,6 @@ dotenv.config()
 
 functions.cloudEvent('verifyUser', async cloudEvent => {
     try {
-        await db_conn.sync()
         const base64name = cloudEvent.data.message.data;
 
         const mg = mailgun.client({ username: 'api', key: process.env.MAILGUN_API_KEY });
@@ -45,7 +44,10 @@ functions.cloudEvent('verifyUser', async cloudEvent => {
             .then(msg => console.log(msg))
             .catch(err => console.error(err));
 
-        await EmailTrack.create({ userId: user.id, emailStatus: "EMAIL_SENT" })
+        const durationInMinutes = 2;
+        const currentTime = new Date();
+        const emailExpiryTime = new Date(currentTime.getTime() + (durationInMinutes * 60 * 1000));
+        await EmailTrack.create({ userId: user.id, emailStatus: "EMAIL_SENT", email_expiry_time: emailExpiryTime})
         console.log("Email Sent to User");
     } catch (error) {
         console.log("error in function", error)
