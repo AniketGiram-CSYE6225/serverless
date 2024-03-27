@@ -26,6 +26,9 @@ const emailTrackAttributes = {
         type: DataTypes.ENUM('EMAIL_SENT', 'EMAIL_VERIFIED'),
         default: "EMAIL_SENT"
     },
+    email_expiry_time: {
+        type: DataTypes.DATE
+    },
     emailSentTime: {
         type: DataTypes.DATE
     },
