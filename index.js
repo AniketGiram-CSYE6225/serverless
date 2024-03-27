@@ -18,7 +18,7 @@ functions.cloudEvent('verifyUser', async cloudEvent => {
             service: "Mailgun",
             auth: {
                 user: "postmaster@aniketgiram.me",
-                pass: process.env.MAILGUN_API_KEY,
+                pass: "78b719bc1df41a3b256fb0f86c6464a6-f68a26c9-aad802ec",
             },
         });
 
@@ -60,7 +60,7 @@ functions.cloudEvent('verifyUser', async cloudEvent => {
             from: "email@aniketgiram.me",
             to: "aniketgiram1@gmail.com",
             subject: `Hi Please activate your account in a few simple steps.`,
-            html: `<b>Please activate your account.</b>\n\n\n. To activate please visit <a href="http://aniketgiram.me:3000/verify_user?&token=${token}">Verify</a>`,
+            html: `<b>Please activate your account.</b>\n\n\n. To activate please visit`,
         };
         transporter.sendMail(mailOpts, async function (err, response) {
             if (err) {
