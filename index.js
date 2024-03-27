@@ -29,7 +29,7 @@ functions.cloudEvent('verifyUser', async cloudEvent => {
         }
 
         const decodedData = JSON.parse(data);
-        console.log(`decoded_data`, decodedData)
+        console.log(`decoded_data => `, decodedData)
 
         // const user = await User.findOne({ where: { id: decodedData['userId'] } });
         // if (user == null) {
