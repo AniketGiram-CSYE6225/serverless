@@ -13,6 +13,7 @@
     "dotenv": "^16.4.5",
     "mailgun.js": "^10.2.1",
     "mysql2": "^3.9.2",
+    "nodemailer": "^6.9.13",
     "sequelize": "^6.37.1"
   }
 }

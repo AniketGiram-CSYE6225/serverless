@@ -3,7 +3,7 @@ const dotenv = require('dotenv')
 const formData = require('form-data');
 const Mailgun = require('mailgun.js');
 const mailgun = new Mailgun(formData);
-const { EmailTrack } = require('./model/index.js')
+// const { EmailTrack } = require('./model/index.js')
 
 dotenv.config()
 
