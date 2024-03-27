@@ -45,6 +45,7 @@ functions.cloudEvent('verifyUser', async cloudEvent => {
         console.log("preparing mail data", mail_data);
         await mg.messages.create('aniketgiram.me', mail_data);
         console.log("Mail Sent");
+        
         const durationInMinutes = 2;
         const currentTime = new Date();
         const emailExpiryTime = new Date(currentTime.getTime() + (durationInMinutes * 60 * 1000));
