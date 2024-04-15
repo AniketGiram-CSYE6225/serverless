@@ -40,7 +40,7 @@ functions.cloudEvent('verifyUser', async cloudEvent => {
             subject: 'Hello from Aniket Giram',
             html: html_data
         };
-        console.log("preparing mail data", mail_data);
+        console.log("preparing mail data.", mail_data);
         mg.messages.create('aniketgiram.me', mail_data)
             .then(msg => console.log(msg))
             .catch(err => console.error(err));
